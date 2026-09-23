@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build & Output
+dist/
+dist-ssr/
+build/
+*.local
+
+# Logs & History
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+gitlog
+gitlog/
+gitlog*
+*.gitlog
+gitlog.txt
+
+# Environment variables & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+
+# IDE & Editor files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# Cache & Temporary files
+.cache/
+.temp/
+.tmp/
+.vite/
+.eslintcache
+.turbo/
+.gemini/
+
+# Testing & Coverage
+coverage/
+.nyc_output/
