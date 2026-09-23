@@ -44,7 +44,8 @@ export default function Overlays({ gameState, score, highScore, gameRef, setGame
         return (
             <div className="overlay">
                 <div className="glass-card">
-                    <h1 className="game-title">NEON BREAKOUT</h1>
+                    <img src="/logo.jpg" alt="BREAKGRID Logo" className="game-logo" />
+                    <h1 className="game-title">BREAKGRID</h1>
                     <p className="game-subtitle">React Arcade Brick Breaker & Boss Battles</p>
                     <div className="btn-group">
                         <button

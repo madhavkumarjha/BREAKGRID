@@ -1,12 +1,12 @@
-# PRD.md — Product Requirement Document: Neon Breakout
+# PRD.md — Product Requirement Document: BREAKGRID
 
-> Defines the product vision, target audience, core features, and success metrics for **Neon Breakout**.
+> Defines the product vision, target audience, core features, and success metrics for **BREAKGRID**.
 
 ---
 
 ## 1. Executive Summary
 
-**Neon Breakout** is a modern, web-based 2D arcade brick breaker built using **React 18** and **Vite 5**. Combining nostalgic brick-smashing mechanics with cyberpunk neon aesthetics, multi-ball chaos, laser cannons, and boss encounters, Neon Breakout provides instant browser playback with responsive desktop and mobile controls.
+**BREAKGRID** is a modern, web-based 2D arcade brick breaker built using **React 18** and **Vite 5**. Combining nostalgic brick-smashing mechanics with cyberpunk neon aesthetics, multi-ball chaos, laser cannons, and boss encounters, BREAKGRID provides instant browser playback with responsive desktop and mobile controls.
 
 ---
 

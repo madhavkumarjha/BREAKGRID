@@ -1,12 +1,12 @@
-# ARCHITECTURE.md — Technical Architecture: Neon Breakout
+# ARCHITECTURE.md — Technical Architecture: BREAKGRID
 
-> Details technical system design, component structure, state flow, and rendering loop for **Neon Breakout**.
+> Details technical system design, component structure, state flow, and rendering loop for **BREAKGRID**.
 
 ---
 
 ## 1. System Architecture Overview
 
-Neon Breakout pairs **React 18** for UI state management, modals, and HUD overlays with a **Canvas 2D Engine** for high-frequency physics, particle simulation, and collision loops.
+BREAKGRID pairs **React 18** for UI state management, modals, and HUD overlays with a **Canvas 2D Engine** for high-frequency physics, particle simulation, and collision loops.
 
 ```
 +-------------------------------------------------------------------+

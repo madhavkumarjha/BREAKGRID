@@ -1,6 +1,6 @@
-# GDD.md — Game Design Document: Neon Breakout
+# GDD.md — Game Design Document: BREAKGRID
 
-> Defines game mechanics, balance numbers, brick behaviors, power-ups, and boss encounters for **Neon Breakout**.
+> Defines game mechanics, balance numbers, brick behaviors, power-ups, and boss encounters for **BREAKGRID**.
 
 ---
 

@@ -1,6 +1,6 @@
-# MASTER_ROADMAP.md — Master Roadmap: Neon Breakout
+# MASTER_ROADMAP.md — Master Roadmap: BREAKGRID
 
-> High-level versioning and release roadmap for **Neon Breakout**.
+> High-level versioning and release roadmap for **BREAKGRID**.
 
 ---
 

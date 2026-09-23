@@ -1,12 +1,12 @@
-# v1_MVP_SCOPE.md — Scope Document: Neon Breakout V1
+# v1_MVP_SCOPE.md — Scope Document: BREAKGRID V1
 
-> Defines the exact scope delivered in V1 for **Neon Breakout**.
+> Defines the exact scope delivered in V1 for **BREAKGRID**.
 
 ---
 
 ## Shipped Scope Summary
 
-- **Title**: Neon Breakout
+- **Title**: BREAKGRID
 - **Genre**: 2D Cyberpunk / Synthwave Arcade Brick Breaker
 - **Tech**: React 18 + Vite 5 + HTML5 Canvas
 - **Levels**: 6 Levels (5 Grid levels + 1 Boss Encounter)

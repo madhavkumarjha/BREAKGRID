@@ -16,7 +16,7 @@ export class BreakoutGame {
         this.height = 600;
 
         this.score = 0;
-        this.highScore = parseInt(localStorage.getItem('breakout_high_score') || '0');
+        this.highScore = parseInt(localStorage.getItem('breakgrid_high_score') || localStorage.getItem('breakout_high_score') || '0');
         this.lives = 3;
         this.combo = 0;
         this.currentLevelIndex = 0;
@@ -51,6 +51,9 @@ export class BreakoutGame {
         this.boundKeyup = this.handleKeyUp.bind(this);
         this.boundMousemove = this.handleMouseMove.bind(this);
         this.boundClick = this.handleClick.bind(this);
+        this.boundTouchstart = this.handleTouchStart.bind(this);
+        this.boundTouchmove = this.handleTouchMove.bind(this);
+        this.boundTouchend = this.handleTouchEnd.bind(this);
 
         this.attachEvents();
     }
@@ -61,6 +64,9 @@ export class BreakoutGame {
         if (this.canvas) {
             this.canvas.addEventListener('mousemove', this.boundMousemove);
             this.canvas.addEventListener('click', this.boundClick);
+            this.canvas.addEventListener('touchstart', this.boundTouchstart, { passive: false });
+            this.canvas.addEventListener('touchmove', this.boundTouchmove, { passive: false });
+            this.canvas.addEventListener('touchend', this.boundTouchend, { passive: false });
         }
     }
 
@@ -70,6 +76,9 @@ export class BreakoutGame {
         if (this.canvas) {
             this.canvas.removeEventListener('mousemove', this.boundMousemove);
             this.canvas.removeEventListener('click', this.boundClick);
+            this.canvas.removeEventListener('touchstart', this.boundTouchstart);
+            this.canvas.removeEventListener('touchmove', this.boundTouchmove);
+            this.canvas.removeEventListener('touchend', this.boundTouchend);
         }
     }
 
@@ -99,9 +108,37 @@ export class BreakoutGame {
     }
 
     handleClick() {
+        soundEngine.init();
         if (this.gameState === 'PLAYING') {
             this.handleSpacePress();
         }
+    }
+
+    handleTouchStart(e) {
+        if (this.gameState !== 'PLAYING') return;
+        soundEngine.init();
+        if (e.touches && e.touches.length > 0) {
+            e.preventDefault();
+            const rect = this.canvas.getBoundingClientRect();
+            const touchX = (e.touches[0].clientX - rect.left) * (this.width / rect.width);
+            this.paddle.x = Math.max(0, Math.min(this.width - this.paddle.width, touchX - this.paddle.width / 2));
+            this.handleSpacePress();
+        }
+    }
+
+    handleTouchMove(e) {
+        if (this.gameState !== 'PLAYING') return;
+        if (e.touches && e.touches.length > 0) {
+            e.preventDefault();
+            const rect = this.canvas.getBoundingClientRect();
+            const touchX = (e.touches[0].clientX - rect.left) * (this.width / rect.width);
+            this.paddle.x = Math.max(0, Math.min(this.width - this.paddle.width, touchX - this.paddle.width / 2));
+        }
+    }
+
+    handleTouchEnd(e) {
+        if (this.gameState !== 'PLAYING') return;
+        e.preventDefault();
     }
 
     handleSpacePress() {
@@ -109,7 +146,7 @@ export class BreakoutGame {
             if (ball.stuck) {
                 ball.stuck = false;
                 ball.vy = -ball.speed;
-                ball.vx = (Math.random() - 0.5) * 4;
+                ball.vx = (Math.random() - 0.5) * 3;
             }
         }
 
@@ -128,6 +165,7 @@ export class BreakoutGame {
     }
 
     startNewGame() {
+        soundEngine.init();
         this.score = 0;
         this.lives = 3;
         this.combo = 0;
@@ -151,7 +189,7 @@ export class BreakoutGame {
         this.particles.clear();
 
         const padding = 12;
-        const marginTop = 60;
+        const marginTop = level.isBoss ? 105 : 60;
         const marginLeft = 35;
         const brickWidth = (this.width - marginLeft * 2 - (level.cols - 1) * padding) / level.cols;
         const brickHeight = 24;
@@ -186,7 +224,7 @@ export class BreakoutGame {
         if (level.isBoss) {
             this.boss = {
                 x: this.width / 2 - 60,
-                y: 90,
+                y: 40,
                 width: 120,
                 height: 50,
                 hp: level.bossHp,
@@ -207,9 +245,9 @@ export class BreakoutGame {
             x: this.paddle.x + this.paddle.width / 2,
             y: this.paddle.y - 12,
             radius: 8,
-            vx: 4,
-            vy: -6,
-            speed: 7,
+            vx: 3,
+            vy: -4.5,
+            speed: 5.5,
             stuck: true,
             isFireball: false
         }];
@@ -241,6 +279,12 @@ export class BreakoutGame {
                 if (key === 'MAGNET') this.paddle.sticky = false;
                 if (key === 'FIREBALL') {
                     this.balls.forEach(b => b.isFireball = false);
+                }
+                if (key === 'SLOW') {
+                    this.balls.forEach(b => {
+                        b.vx /= 0.7;
+                        b.vy /= 0.7;
+                    });
                 }
             }
         }
@@ -450,10 +494,12 @@ export class BreakoutGame {
         } else if (type.id === 'SHIELD') {
             this.hasBottomShield = true;
         } else if (type.id === 'SLOW') {
-            this.balls.forEach(b => {
-                b.vx *= 0.7;
-                b.vy *= 0.7;
-            });
+            if (!this.activePowerups.has('SLOW')) {
+                this.balls.forEach(b => {
+                    b.vx *= 0.7;
+                    b.vy *= 0.7;
+                });
+            }
             this.activePowerups.set(type.id, Date.now() + type.duration);
         }
         this.notifyState();
@@ -468,10 +514,16 @@ export class BreakoutGame {
         brick.hp--;
         this.combo++;
 
-        const pts = 100 * this.combo;
+        let basePoints = 100;
+        if (brick.type === BRICK_TYPES.REINFORCED) basePoints = 200;
+        else if (brick.type === BRICK_TYPES.EXPLOSIVE) basePoints = 300;
+        else if (brick.type === BRICK_TYPES.POWERUP) basePoints = 150;
+
+        const pts = basePoints * this.combo;
         this.score += pts;
         if (this.score > this.highScore) {
             this.highScore = this.score;
+            localStorage.setItem('breakgrid_high_score', this.highScore.toString());
             localStorage.setItem('breakout_high_score', this.highScore.toString());
         }
 

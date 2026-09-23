@@ -1,4 +1,4 @@
-# Neon Breakout
+# BREAKGRID
 
 > A modern, vibrant 2D Cyberpunk Arcade Brick Breaker with Boss Encounters, built with Vite + React.
 
@@ -6,7 +6,7 @@
 
 ## 1. What This Project Is
 
-**Neon Breakout** is a 2D arcade brick breaker game set in a retro-futuristic synthwave world. The player controls a high-tech paddle to reflect active energy balls, shatter various brick types, collect falling power-up capsules, build combo multipliers, and conquer escalating levels culminating in a final Boss Encounter against "THE CORE".
+**BREAKGRID** is a 2D arcade brick breaker game set in a retro-futuristic synthwave world. The player controls a high-tech paddle to reflect active energy balls, shatter various brick types, collect falling power-up capsules, build combo multipliers, and conquer escalating levels culminating in a final Boss Encounter against "THE CORE".
 
 **One-line pitch:** A fast, polished, React-powered arcade brick breaker with Web Audio synthesis, multi-ball chaos, laser cannons, and boss battles.
 

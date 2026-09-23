@@ -1,6 +1,6 @@
-# PRODUCT_SPEC.md — Feature Specifications: Neon Breakout
+# PRODUCT_SPEC.md — Feature Specifications: BREAKGRID
 
-> Feature-by-feature detailed product specifications for **Neon Breakout**.
+> Feature-by-feature detailed product specifications for **BREAKGRID**.
 
 ---
 

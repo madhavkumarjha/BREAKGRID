@@ -43,23 +43,21 @@ export const LEVELS = [
     {
         id: 2,
         name: "Cyber Fortress",
-        rows: 6,
+        rows: 5,
         cols: 9,
         grid: [
-            ['METAL', 'PINK', 'PINK', 'PINK', 'GOLD', 'PINK', 'PINK', 'PINK', 'METAL'],
-            ['CYAN', 'METAL', 'PURPLE', 'PURPLE', 'PURPLE', 'PURPLE', 'PURPLE', 'METAL', 'CYAN'],
-            ['CYAN', 'YELLOW', 'METAL', 'GREEN', 'GREEN', 'GREEN', 'METAL', 'YELLOW', 'CYAN'],
-            ['CYAN', 'YELLOW', 'GREEN', 'METAL', 'EXPLOSIVE', 'METAL', 'GREEN', 'YELLOW', 'CYAN'],
-            ['CYAN', 'YELLOW', 'METAL', 'GREEN', 'GREEN', 'GREEN', 'METAL', 'YELLOW', 'CYAN'],
-            ['METAL', 'PINK', 'PINK', 'PINK', 'GOLD', 'PINK', 'PINK', 'PINK', 'METAL']
+            ['METAL', 'CYAN', 'PINK', 'GOLD', 'PURPLE', 'GOLD', 'PINK', 'CYAN', 'METAL'],
+            ['CYAN', 'PINK', 'PURPLE', 'METAL', 'GOLD', 'METAL', 'PURPLE', 'PINK', 'CYAN'],
+            ['YELLOW', 'PURPLE', 'GREEN', 'EXPLOSIVE', 'GOLD', 'EXPLOSIVE', 'GREEN', 'PURPLE', 'YELLOW'],
+            ['PINK', 'YELLOW', 'GREEN', 'CYAN', 'CYAN', 'CYAN', 'GREEN', 'YELLOW', 'PINK'],
+            ['CYAN', 'CYAN', 'YELLOW', 'PINK', 'GREEN', 'PINK', 'YELLOW', 'CYAN', 'CYAN']
         ],
         types: [
-            ['U', 'R', 'R', 'R', 'P', 'R', 'R', 'R', 'U'],
-            ['N', 'U', 'R', 'P', 'R', 'P', 'R', 'U', 'N'],
-            ['N', 'N', 'U', 'N', 'N', 'N', 'U', 'N', 'N'],
-            ['N', 'N', 'N', 'U', 'E', 'U', 'N', 'N', 'N'],
-            ['N', 'N', 'U', 'N', 'N', 'N', 'U', 'N', 'N'],
-            ['U', 'R', 'R', 'R', 'P', 'R', 'R', 'R', 'U']
+            ['U', 'R', 'R', 'P', 'R', 'P', 'R', 'R', 'U'],
+            ['N', 'N', 'R', 'U', 'P', 'U', 'R', 'N', 'N'],
+            ['N', 'R', 'N', 'E', 'P', 'E', 'N', 'R', 'N'],
+            ['N', 'N', 'N', 'N', 'R', 'N', 'N', 'N', 'N'],
+            ['N', 'N', 'N', 'P', 'N', 'P', 'N', 'N', 'N']
         ]
     },
     {
@@ -73,7 +71,7 @@ export const LEVELS = [
             ['YELLOW', 'YELLOW', 'EXPLOSIVE', 'YELLOW', 'GOLD', 'YELLOW', 'EXPLOSIVE', 'YELLOW', 'YELLOW'],
             ['GREEN', 'EXPLOSIVE', 'GREEN', 'EXPLOSIVE', 'GREEN', 'EXPLOSIVE', 'GREEN', 'EXPLOSIVE', 'GREEN'],
             ['PINK', 'PINK', 'PINK', 'EXPLOSIVE', 'PINK', 'EXPLOSIVE', 'PINK', 'PINK', 'PINK'],
-            ['METAL', 'CYAN', 'CYAN', 'CYAN', 'METAL', 'CYAN', 'CYAN', 'CYAN', 'METAL']
+            ['PINK', 'CYAN', 'CYAN', 'CYAN', 'GOLD', 'CYAN', 'CYAN', 'CYAN', 'PINK']
         ],
         types: [
             ['E', 'N', 'E', 'N', 'E', 'N', 'E', 'N', 'E'],
@@ -81,7 +79,7 @@ export const LEVELS = [
             ['N', 'N', 'E', 'N', 'P', 'N', 'E', 'N', 'N'],
             ['N', 'E', 'N', 'E', 'N', 'E', 'N', 'E', 'N'],
             ['P', 'N', 'N', 'E', 'N', 'E', 'N', 'N', 'P'],
-            ['U', 'N', 'N', 'N', 'U', 'N', 'N', 'N', 'U']
+            ['R', 'N', 'N', 'N', 'P', 'N', 'N', 'N', 'R']
         ]
     },
     {
