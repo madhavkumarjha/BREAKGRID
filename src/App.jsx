@@ -9,7 +9,7 @@ export default function App() {
 
     const [gameState, setGameState] = useState('MENU');
     const [score, setScore] = useState(0);
-    const [highScore, setHighScore] = useState(parseInt(localStorage.getItem('breakout_high_score') || '0'));
+    const [highScore, setHighScore] = useState(parseInt(localStorage.getItem('breakgrid_high_score') || localStorage.getItem('breakout_high_score') || '0'));
     const [lives, setLives] = useState(3);
     const [combo, setCombo] = useState(1);
     const [levelName, setLevelName] = useState('Neon Waves');
@@ -53,6 +53,7 @@ export default function App() {
                 combo={combo}
                 levelName={levelName}
                 activePowerups={activePowerups}
+                onTogglePause={() => gameRef.current && gameRef.current.togglePause()}
             />
 
             <div id="canvas-wrapper">

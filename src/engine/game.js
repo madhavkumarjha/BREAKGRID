@@ -412,10 +412,18 @@ export class BreakoutGame {
                         const prevX = ball.x - ball.vx;
                         const prevY = ball.y - ball.vy;
 
-                        if (prevX + ball.radius <= brick.x || prevX - ball.radius >= brick.x + brick.width) {
-                            ball.vx *= -1;
+                        if (prevX + ball.radius <= brick.x) {
+                            ball.vx = -Math.abs(ball.vx);
+                            ball.x = brick.x - ball.radius - 1;
+                        } else if (prevX - ball.radius >= brick.x + brick.width) {
+                            ball.vx = Math.abs(ball.vx);
+                            ball.x = brick.x + brick.width + ball.radius + 1;
+                        } else if (prevY + ball.radius <= brick.y) {
+                            ball.vy = -Math.abs(ball.vy);
+                            ball.y = brick.y - ball.radius - 1;
                         } else {
-                            ball.vy *= -1;
+                            ball.vy = Math.abs(ball.vy);
+                            ball.y = brick.y + brick.height + ball.radius + 1;
                         }
                     }
 
@@ -425,7 +433,13 @@ export class BreakoutGame {
             }
 
             if (this.boss && this.boss.hp > 0 && this.circleRectOverlap(ball, this.boss)) {
-                ball.vy *= -1;
+                if (ball.vy > 0) {
+                    ball.vy = -Math.abs(ball.vy);
+                    ball.y = this.boss.y - ball.radius - 1;
+                } else {
+                    ball.vy = Math.abs(ball.vy);
+                    ball.y = this.boss.y + this.boss.height + ball.radius + 1;
+                }
                 this.boss.hp -= 5;
                 soundEngine.playBrickHit(1.8);
                 this.particles.createBrickExplosion(this.boss.x, this.boss.y, this.boss.width, this.boss.height, '#ff0055');
@@ -464,14 +478,19 @@ export class BreakoutGame {
     applyPowerUp(type) {
         if (type.id === 'MULTIBALL') {
             const count = this.balls.length;
+            const isSlowActive = this.activePowerups.has('SLOW');
             for (let i = 0; i < 2; i++) {
                 if (count > 0) {
                     const base = this.balls[0];
+                    let newVx = (Math.random() - 0.5) * 8;
+                    if (isSlowActive) {
+                        newVx *= 0.7;
+                    }
                     this.balls.push({
                         x: base.x,
                         y: base.y,
                         radius: 8,
-                        vx: (Math.random() - 0.5) * 8,
+                        vx: newVx,
                         vy: -Math.abs(base.vy),
                         speed: base.speed,
                         stuck: false,
@@ -589,7 +608,6 @@ export class BreakoutGame {
 
     handleGameOver() {
         this.gameState = 'GAME_OVER';
-        soundEngine.playLifeLost();
         this.notifyState();
     }
 

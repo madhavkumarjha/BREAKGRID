@@ -79,6 +79,8 @@ export default function Overlays({ gameState, score, highScore, gameRef, setGame
                             className="btn btn-secondary"
                             onClick={() => {
                                 if (gameRef.current) {
+                                    gameRef.current.score = 0;
+                                    gameRef.current.lives = 3;
                                     gameRef.current.loadLevel(gameRef.current.currentLevelIndex);
                                     gameRef.current.gameState = 'PLAYING';
                                     setGameState('PLAYING');
@@ -142,6 +144,15 @@ export default function Overlays({ gameState, score, highScore, gameRef, setGame
                     <div className="btn-group">
                         <button className="btn btn-primary" onClick={() => gameRef.current && gameRef.current.startNewGame()}>
                             PLAY AGAIN
+                        </button>
+                        <button
+                            className="btn btn-secondary"
+                            onClick={() => {
+                                if (gameRef.current) gameRef.current.gameState = 'MENU';
+                                setGameState('MENU');
+                            }}
+                        >
+                            MAIN MENU
                         </button>
                     </div>
                 </div>

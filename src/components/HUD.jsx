@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function HUD({ score, highScore, lives, combo, levelName, activePowerups }) {
+export default function HUD({ score, highScore, lives, combo, levelName, activePowerups, onTogglePause }) {
     return (
         <header id="hud">
             <div className="hud-item">
@@ -23,8 +23,13 @@ export default function HUD({ score, highScore, lives, combo, levelName, activeP
             </div>
             <div className="hud-item">
                 <span className="hud-label">Level</span>
-                <span className="hud-value" id="val-level" style={{ fontSize: '1rem' }}>{levelName}</span>
+                <span className="hud-value" id="val-level" style={{ fontSize: '0.9rem' }}>{levelName}</span>
             </div>
+            {onTogglePause && (
+                <button className="pause-btn" onClick={onTogglePause} title="Pause Game" aria-label="Pause Game">
+                    ⏸️
+                </button>
+            )}
         </header>
     );
 }

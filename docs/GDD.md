@@ -43,7 +43,7 @@ Select Level / Start Game → Move Paddle & Reflect Ball → Shatter Bricks → 
 | **Fireball** | 🔥 | Red | 8 sec | Ball glows red and pierces through bricks |
 | **Magnetic Stick** | 🧲 | Purple | 10 sec | Holds ball on paddle until launched |
 | **Energy Shield** | 🛡️ | Yellow | Static Barrier | Bottom barrier protecting against 1 ball drop |
-| **Slow-Motion** | ⏳ | Cyan | 8 sec | Reduces ball velocity to 30% (`0.7x`) |
+| **Slow-Motion** | ⏳ | Cyan | 8 sec | Reduces ball velocity by 30% (to `0.7x`) |
 
 ---
 
