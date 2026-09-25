@@ -53,6 +53,7 @@ export default function App() {
                 combo={combo}
                 levelName={levelName}
                 activePowerups={activePowerups}
+                gameState={gameState}
                 onTogglePause={() => gameRef.current && gameRef.current.togglePause()}
             />
 

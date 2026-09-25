@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default function HUD({ score, highScore, lives, combo, levelName, activePowerups, onTogglePause }) {
+export default function HUD({ score, highScore, lives, combo, levelName, activePowerups, gameState, onTogglePause }) {
+    const showPause = (gameState === 'PLAYING' || gameState === 'PAUSED') && onTogglePause;
+
     return (
         <header id="hud">
             <div className="hud-item">
@@ -25,7 +27,7 @@ export default function HUD({ score, highScore, lives, combo, levelName, activeP
                 <span className="hud-label">Level</span>
                 <span className="hud-value" id="val-level" style={{ fontSize: '0.9rem' }}>{levelName}</span>
             </div>
-            {onTogglePause && (
+            {showPause && (
                 <button className="pause-btn" onClick={onTogglePause} title="Pause Game" aria-label="Pause Game">
                     ⏸️
                 </button>

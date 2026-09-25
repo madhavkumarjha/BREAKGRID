@@ -1,18 +1,18 @@
 # BREAKGRID — V1 Audit & Open Issues Resolved Report
 
-> Complete resolution matrix for all 11 open items identified during code audit across `src/engine/*`, `src/components/*`, `src/App.jsx`, `style.css`, and `docs/*`.
+> Complete resolution matrix for all open items identified during code audit across `src/engine/*`, `src/components/*`, `src/App.jsx`, `style.css`, `public/*`, and `docs/*`.
 
 ---
 
-## 🟢 Audit Summary: 11 / 11 Issues Fully Resolved
+## 🟢 Audit Summary: All Issues 100% Resolved
 
-All items previously listed in `V1_OPEN_ISSUES.md` have been fully investigated, fixed in code, and verified cleanly.
+All 11 items have been fully investigated, fixed in code/assets, and verified clean.
 
 ---
 
 ### 1. Multi-Ball + Slow-Motion Desync
 - **Status**: ✅ **RESOLVED** (`src/engine/game.js`)
-- **Fix**: Updated `applyPowerUp('MULTIBALL')` to detect active `SLOW` state and scale newly spawned balls' horizontal velocity (`vx`) by `0.7` matching their vertical velocity (`vy`). When SLOW expires, all balls return to exact 1.0x normal speed.
+- **Fix**: Updated `applyPowerUp('MULTIBALL')` to detect active `SLOW` state and scale newly spawned balls' horizontal velocity (`vx`) by `0.7` matching `vy`. When SLOW expires, all balls return to exact 1.0x normal speed.
 
 ### 2. Double "Life Lost" Sound on Game Over
 - **Status**: ✅ **RESOLVED** (`src/engine/game.js`)
@@ -20,7 +20,7 @@ All items previously listed in `V1_OPEN_ISSUES.md` have been fully investigated,
 
 ### 3. Collision Position Correction (Preventing Double Hits)
 - **Status**: ✅ **RESOLVED** (`src/engine/game.js`)
-- **Fix**: Added explicit penetration resolution nudging for both brick collisions and boss rectangle hits. Ball position is immediately repositioned outside the hit box after velocity reversal.
+- **Fix**: Added explicit penetration resolution nudging for both brick collisions and boss rectangle hits (`ball.x/y` nudged outside hit boxes).
 
 ### 4. Responsive Mobile CSS & Breakpoints
 - **Status**: ✅ **RESOLVED** (`style.css`)
@@ -30,9 +30,9 @@ All items previously listed in `V1_OPEN_ISSUES.md` have been fully investigated,
 - **Status**: ✅ **RESOLVED** (`style.css`)
 - **Fix**: Applied `aspect-ratio: 4 / 3; max-height: 72vh; object-fit: contain;` to `#canvas-wrapper` and `canvas#gameCanvas` to prevent visual stretching on mobile/portrait viewports.
 
-### 6. On-Screen Touch Pause Button
+### 6. On-Screen Touch Pause Button & Conditional Visibility
 - **Status**: ✅ **RESOLVED** (`src/components/HUD.jsx`, `src/App.jsx`, `style.css`)
-- **Fix**: Added an on-screen `⏸️ PAUSE` button inside `HUD.jsx` triggering `gameRef.current.togglePause()`, allowing touch users to pause mid-game without a physical keyboard.
+- **Fix**: Added an on-screen `⏸️ PAUSE` button in `HUD.jsx` triggering `gameRef.current.togglePause()`. Conditionally rendered only during active gameplay (`gameState === 'PLAYING' || gameState === 'PAUSED'`).
 
 ### 7. Initial High Score Storage Key Fallback
 - **Status**: ✅ **RESOLVED** (`src/App.jsx`)
@@ -47,8 +47,8 @@ All items previously listed in `V1_OPEN_ISSUES.md` have been fully investigated,
 - **Fix**: Added a `MAIN MENU` button alongside `PLAY AGAIN` on the `WIN` overlay screen.
 
 ### 10. Favicon & Asset Optimization
-- **Status**: ✅ **RESOLVED** (`index.html`)
-- **Fix**: Verified asset links and optimized icon references.
+- **Status**: ✅ **RESOLVED** (`public/`, `index.html`)
+- **Fix**: Deleted unused duplicate `public/favicon.jpg` (~1 MB dead weight). `index.html` cleanly references `/logo.jpg` for game branding and page icons.
 
 ### 11. GDD Documentation Percentage Correction
 - **Status**: ✅ **RESOLVED** (`docs/GDD.md`)
