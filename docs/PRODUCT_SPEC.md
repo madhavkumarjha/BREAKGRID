@@ -8,10 +8,10 @@
 
 ### Header Bar
 - **Score Counter**: Displays accumulated points, updating instantly on brick hit / power-up collection.
-- **High Score**: Loaded from `localStorage.getItem('breakout_high_score')`, updated when current score exceeds high score.
+- **High Score**: Loaded from `localStorage.getItem('breakgrid_high_score')` (with automatic fallback migration from legacy `breakout_high_score`), updated when current score exceeds high score.
 - **Lives Display**: Visual heart icons (`❤️ ❤️ ❤️`), decrementing when all balls fall past the bottom.
 - **Combo Multiplier**: Tracks consecutive brick hits without paddle bounce (`1x`, `x2`, `x3`, etc.).
-- **Level Name**: Shows the current level title (e.g., *Neon Waves*, *THE CORE*).
+- **Level Name**: Shows current level title (*Neon Waves*, *Cyber Fortress*, *Explosive Grid*, *Retro Invader*, *Diamond Citadel*, *THE CORE*).
 
 ### Overlays & Screens
 - **Main Menu**: Options to start new game or access Level Select.

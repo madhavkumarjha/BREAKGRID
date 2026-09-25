@@ -30,7 +30,7 @@
 ```bash
 # Clone the repo
 git clone <repo-url>
-cd neon-breakout
+cd breakgrid
 
 # Install dependencies
 npm install
@@ -51,13 +51,19 @@ npm run build
 ## 4. Clean Folder Structure
 
 ```
-📦 d:/2D Cyberpunk/
+📦 breakgrid/
 │
+├── 📄 AGENT.md                 → AI agent coding rules & workspace instructions
 ├── 📄 README.md                → Project Overview & Quick Start (You are here)
 ├── 📄 package.json             → Vite + React dependencies & scripts
 ├── 📄 vite.config.js           → Vite server configuration
 ├── 📄 index.html               → Entrypoint HTML template
 ├── 📄 style.css                → Neon glassmorphism theme stylesheet
+│
+├── 📂 .ai/                     → AI Agent Context, Rules, and Prompts
+│   ├── 📄 rules.md             → Coding standards & guidelines
+│   ├── 📄 context.md           → Complete project state snapshot
+│   └── 📄 prompts.md           → Ready-made task prompt templates
 │
 ├── 📂 src/                     → React & Game Engine Source Code
 │   ├── 📄 main.jsx             → React DOM root mount
@@ -84,19 +90,23 @@ npm run build
     ├── 📄 v1_MVP_SCOPE.md      → Shipped V1 Scope
     ├── 📄 ART_STYLE_GUIDE.md   → Neon Visual Identity & Theme
     ├── 📄 UI_UX_FLOW.md        → Screen Navigation & Layout Specs
-    └── 📄 rules.md             → Coding Standards & Guidelines
+    └── 📂 bugs/
+        └── 📄 BUGS_AND_MISSING.md → Technical code review & bug resolution log
 ```
 
 ---
 
 ## 5. Documentation Index (`docs/`)
 
-All project documentation lives cleanly inside the [`docs/`](file:///d:/2D%20Cyberpunk/docs) directory:
+All project documentation lives cleanly inside the [`docs/`](file:///d:/breakout/docs) directory:
 
-- [docs/PRD.md](file:///d:/2D%20Cyberpunk/docs/PRD.md)
-- [docs/GDD.md](file:///d:/2D%20Cyberpunk/docs/GDD.md)
-- [docs/ARCHITECTURE.md](file:///d:/2D%20Cyberpunk/docs/ARCHITECTURE.md)
-- [docs/PRODUCT_SPEC.md](file:///d:/2D%20Cyberpunk/docs/PRODUCT_SPEC.md)
-- [docs/DECISIONS.md](file:///d:/2D%20Cyberpunk/docs/DECISIONS.md)
-- [docs/MASTER_ROADMAP.md](file:///d:/2D%20Cyberpunk/docs/MASTER_ROADMAP.md)
-- [docs/v1_MVP_SCOPE.md](file:///d:/2D%20Cyberpunk/docs/v1_MVP_SCOPE.md)
+- [docs/PRD.md](file:///d:/breakout/docs/PRD.md) — Product Requirement Document
+- [docs/GDD.md](file:///d:/breakout/docs/GDD.md) — Game Design Document
+- [docs/ARCHITECTURE.md](file:///d:/breakout/docs/ARCHITECTURE.md) — System Architecture
+- [docs/PRODUCT_SPEC.md](file:///d:/breakout/docs/PRODUCT_SPEC.md) — Product & Feature Specifications
+- [docs/DECISIONS.md](file:///d:/breakout/docs/DECISIONS.md) — Architecture Decision Records
+- [docs/MASTER_ROADMAP.md](file:///d:/breakout/docs/MASTER_ROADMAP.md) — Roadmap & Release Phases
+- [docs/v1_MVP_SCOPE.md](file:///d:/breakout/docs/v1_MVP_SCOPE.md) — Shipped V1 Scope
+- [docs/ART_STYLE_GUIDE.md](file:///d:/breakout/docs/ART_STYLE_GUIDE.md) — Visual Identity & Palette
+- [docs/UI_UX_FLOW.md](file:///d:/breakout/docs/UI_UX_FLOW.md) — Screen Flow & Controls
+- [docs/bugs/BUGS_AND_MISSING.md](file:///d:/breakout/docs/bugs/BUGS_AND_MISSING.md) — Code Audit & Resolution Log

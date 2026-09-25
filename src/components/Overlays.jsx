@@ -106,7 +106,7 @@ export default function Overlays({ gameState, score, highScore, gameRef, setGame
         return (
             <div className="overlay">
                 <div className="glass-card">
-                    <h2 className="game-title" style={{ background: 'linear-gradient(135deg, #ff0055, #ffe600)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                    <h2 className="game-title" style={{ background: 'linear-gradient(135deg, #ff0055, #ffe600)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                         GAME OVER
                     </h2>
                     <p style={{ marginBottom: '8px' }}>Final Score: <strong style={{ color: 'var(--neon-cyan)' }}>{score}</strong></p>
@@ -134,7 +134,7 @@ export default function Overlays({ gameState, score, highScore, gameRef, setGame
         return (
             <div className="overlay">
                 <div className="glass-card">
-                    <h2 className="game-title" style={{ background: 'linear-gradient(135deg, #00ff66, #00f0ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                    <h2 className="game-title" style={{ background: 'linear-gradient(135deg, #00ff66, #00f0ff)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                         VICTORY!
                     </h2>
                     <p className="game-subtitle">You destroyed The Core!</p>

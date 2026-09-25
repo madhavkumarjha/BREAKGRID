@@ -25,11 +25,11 @@ Select Level / Start Game → Move Paddle & Reflect Ball → Shatter Bricks → 
 
 | Brick Type | Visual Color | Hit Points | Score Value | Special Effect |
 |---|---|---|---|---|
-| Standard | Cyan / Pink / Yellow / Purple / Green | 1 | 100 x Combo | Standard destruction |
-| Reinforced | Varied (Crack visual) | 2 | 200 x Combo | Shows crack on first hit |
-| Unbreakable | Metallic Silver | Infinity | 0 | Reflects ball, cannot be destroyed |
-| Explosive | Red (Bomb Icon 💣) | 1 | 300 x Combo | Triggers 90px radius AoE explosion |
-| Power-Up | Gold | 1 | 150 x Combo | Guaranteed power-up item capsule drop |
+| **Standard** | Neon Cyan (`#00F0FF`) | 1 | 100 x Combo | Standard destruction |
+| **Reinforced** | Neon Amber (`#FFB800`) | 2 | 200 x Combo | Shows crack visual on first hit |
+| **Explosive** | Hot Magenta (`#FF2079`) | 1 | 300 x Combo | Triggers 90px radius radial AoE explosion |
+| **Unbreakable**| Electric Purple (`#A020F0` / Metal) | Infinity | 0 | Reflects ball, cannot be destroyed |
+| **Power-Up** | Neon Lime (`#39FF88`) | 1 | 150 x Combo | Guaranteed power-up item capsule drop |
 
 ---
 
@@ -38,18 +38,18 @@ Select Level / Start Game → Move Paddle & Reflect Ball → Shatter Bricks → 
 | Power-Up | Icon | Color | Duration | Description |
 |---|---|---|---|---|
 | **Multi-Ball** | ⚽ | Cyan | Instant | Spawns 2 additional active energy balls |
-| **Laser Cannon** | 🔫 | Pink | 10 sec | Equips dual lasers to fire with `Space`/Click |
-| **Expand Paddle** | ↔️ | Green | 12 sec | Increases paddle width by 50% |
+| **Laser Cannon** | 🔫 | Pink | 10 sec | Equips dual lasers to fire with `Space`/Click/Tap |
+| **Expand Paddle** | ↔️ | Green | 12 sec | Increases paddle width by 50% (`1.5x`) |
 | **Fireball** | 🔥 | Red | 8 sec | Ball glows red and pierces through bricks |
 | **Magnetic Stick** | 🧲 | Purple | 10 sec | Holds ball on paddle until launched |
-| **Energy Shield** | 🛡️ | Yellow | 1 Use | Bottom barrier preventing ball loss once |
-| **Slow-Motion** | ⏳ | Cyan | 8 sec | Reduces ball velocity by 30% |
+| **Energy Shield** | 🛡️ | Yellow | Static Barrier | Bottom barrier protecting against 1 ball drop |
+| **Slow-Motion** | ⏳ | Cyan | 8 sec | Reduces ball velocity to 30% (`0.7x`) |
 
 ---
 
 ## 5. Levels & Boss Encounters
 
-1. **Level 1: Neon Waves** — Introductory level with basic brick grid.
+1. **Level 1: Neon Waves** — Introductory level with basic cyan/pink/yellow brick grid.
 2. **Level 2: Cyber Fortress** — Metallic unbreakable corner pillars and reinforced bricks.
 3. **Level 3: Explosive Grid** — High-density explosive brick clusters.
 4. **Level 4: Retro Invader** — Invader pixel shape crafted from reinforced bricks.
